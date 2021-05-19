@@ -53,14 +53,14 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
+      "src/**/*.{js,jsx,js}"
     ],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,js}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,js}"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
@@ -70,19 +70,14 @@
       "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|js)$"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
     "moduleFileExtensions": [
-      "web.js",
-      "mjs",
       "js",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
+      "jsx"
     ]
   },
   "babel": {
@@ -97,5 +92,9 @@
   "main": "index.js",
   "repository": "git@github.com:drewdecarme/cadent-react-redux-exercise.git",
   "author": "Drew DeCarme",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7"
+  }
 }

@@ -4,7 +4,7 @@ const ListSelection = ({ isItemSelected, selectedItem }) => {
   if (!isItemSelected) {
     return (
       <div className="listSelection">
-        <p>No item selected</p>
+        <p data-testid="noitemselected">No item selected</p>
       </div>
     );
   }

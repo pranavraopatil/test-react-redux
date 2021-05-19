@@ -6,18 +6,18 @@ export const ListTable = ({
   deSelectItem,
   removeItem,
 }) => {
-  const [ currentSelectIndex , setCurrentSelectIndex ] = useState(null);
+  const [currentSelectIndex, setCurrentSelectIndex] = useState(null);
   const handleRemoveItem = useCallback((index) => {
     removeItem(index);
   });
   const onSelect = useCallback((event, index) => {
     const { checked } = event.target;
-    if(checked){
+    if (checked) {
       setCurrentSelectIndex(index);
-      selectItem(index)
-    } else{
+      selectItem(index);
+    } else {
       setCurrentSelectIndex(null);
-      deSelectItem(index)
+      deSelectItem(index);
     }
   });
   return (
@@ -41,8 +41,20 @@ export const ListTable = ({
             groceryList.map((item, index) => (
               <tr>
                 <td>
-                  <button onClick={() => handleRemoveItem(index)}>X</button>
-                  <input type="checkbox" onChange={(e) => onSelect(e, index)} checked={currentSelectIndex === index} />
+                  <button
+                    data-testid={`removeItem${index}`}
+                    onClick={() => handleRemoveItem(index)}
+                  >
+                    X
+                  </button>
+                  <input
+                    aria-label="Select or deselect item"
+                    aria-checked={currentSelectIndex === index}
+                    data-testid={`selectItem${index}`}
+                    type="checkbox"
+                    onChange={(e) => onSelect(e, index)}
+                    checked={currentSelectIndex === index}
+                  />
                 </td>
                 <td>{item.name}</td>
                 <td>{item.category}</td>

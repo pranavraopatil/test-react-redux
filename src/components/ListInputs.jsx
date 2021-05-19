@@ -15,6 +15,7 @@ export const ListInputs = ({ addItem }) => {
 
   return (
     <button
+      data-testid="addItem"
       className="addItemButton"
       onClick={createItem}
     >
